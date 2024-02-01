@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>phyloBUSCO</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
+  <!-- add new links for phyloTree  -->
+
+  <!-- Latest compiled and minified CSS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootswatch/4.1.1/spacelab/bootstrap.min.css" />
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <script src="//d3js.org/d3.v6.js"></script>
+  <script src="./JS/phylotree.js"></script>
+  <link href="./CSS/phylotree.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #0048ff;">
+    <div class="container px-5">
+      <!-- Left side with logo -->
+      <a class=" text-white logo-design fs-3" href="#">
+        phyloBUSCO
+      </a>
+
+      <!-- Navbar toggle button for small screens -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Right side with links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="./index.html">Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./placeGenome.html">Place genome</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Browse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container">
+      <div class="row btn-section">
+        <div class="col-sm-12 col-md-4 text-center ">
+          <div>
+            <button class="btn fw-bold fs-5 large-btn text-white" id="plantBtn"
+              onclick="activeButton('plantBtn')">Plant</button>
+          </div>
+          <div class="my-lg-2 my-md-1 my-2">
+            <button class="btn  text-primary small-btn " id="monocotBtn"
+              onclick="activeButton('monocotBtn')">Monocot</button>
+            <button class="btn  text-primary small-btn " id="dicotBtn" onclick="activeButton('dicotBtn')">Dicot</button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 text-center">
+          <div>
+            <button class="btn fw-bold fs-5 large-btn text-white" id="fungiBtn"
+              onclick="activeButton('fungiBtn')">Fungi</button>
+          </div>
+          <div class="my-2 my-lg-2 my-md-1">
+            <button class="btn  text-primary small-btn " id="ascomycetesBtn"
+              onclick="activeButton('ascomycetesBtn')">Ascomycetes </button>
+            <button class="btn  text-primary small-btn " id="basidiomycetesBtn"
+              onclick="activeButton('basidiomycetesBtn')"> Basidiomycetes</button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 text-center">
+          <div>
+            <button class="btn fw-bold fs-5 large-btn text-white" id="animalBtn"
+              onclick="activeButton('animalBtn')">Animal</button>
+          </div>
+          <div class="my-2 my-lg-2 my-md-1">
+            <button class="btn  text-primary small-btn " id="arthropodsBtn"
+              onclick="activeButton('arthropodsBtn')">Arthropods</button>
+            <button class="btn  text-primary small-btn " id="chrodatesBtn"
+              onclick="activeButton('chrodatesBtn')">Chrodates</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container .graph-section">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">phylotree.js</a>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a href="#" id="newick-dropdown" class="nav-link dropdown-toggle" role="button"
+                data-toggle="dropdown">Newick <b class="caret"></b></a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#newick_modal">Input Text</a>
+
+                <div class="dropdown-item">
+                  <input id="newick_url" name="newick_url" type="url" placeholder="http://www.example.com">
+                  <button id="newick_url_btn">Get</button>
+                </div>
+
+                <a class="dropdown-item" href="#"><input type="file" id="newick_file" /></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#newick_export_modal">Export</a>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Tag
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="selection_name_dropdown">
+                <a id="selection_new" class="dropdown-item" href="#">New selection set</a>
+                <a id="selection_delete" class="dropdown-item" href="#">Delete selection set</a>
+                <a id="selection_rename" class="dropdown-item" href="#">Rename selection set</a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+
+            <li>
+              <form class="form-inline my-2 my-lg-0">
+                <input type="text" id="selection_name_box" class="form-control mr-sm-2" value="Foreground" disabled
+                  size="40" />
+              </form>
+            </li>
+
+            <li id="save_selection_name" style="display:none;" class="my-auto">
+              <a href="#"><button id="cancel_selection_button" class="btn btn-info btn-sm">
+                  Cancel
+                </button></a>
+              <a href="#"><button id="save_selection_button" class="btn btn-info btn-sm">
+                  Save
+                </button></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Selection
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a id="filter_add" class="dropdown-item" href="#">Add filtered nodes to selection</a>
+                <a id="filter_remove" class="dropdown-item" href="#">Select all but filtered nodes</a>
+                <div class="dropdown-divider"></div>
+                <a id="select_all" class="dropdown-item" href="#">Select all</a>
+                <a id="select_all_internal" class="dropdown-item" href="#">Select all internal nodes</a>
+                <a id="select_all_leaves" class="dropdown-item" href="#">Select all leaf nodes</a>
+                <a id="clear_internal" class="dropdown-item" href="#">Clear all internal nodes</a>
+                <a id="clear_leaves" class="dropdown-item" href="#">Clear all leaves</a>
+                <a id="select_none" class="dropdown-item" href="#">Clear selection</a>
+                <div class="dropdown-divider"></div>
+                <a id="mp_label" class="dropdown-item" href="#">Label internal nodes using maximum parsimony</a>
+                <a id="and_label" class="dropdown-item" href="#">Label internal nodes using conjunction (AND)</a>
+                <a id="or_label" class="dropdown-item" href="#">Label internal nodes using disjunction (OR)</a>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li>
+              <form class="form-inline my-2 my-lg-0">
+                <input type="text" id="branch_filter" class="form-control mr-sm-2" placeholder="Filter branches on"
+                  onkeypress="return event.keyCode != 13" />
+              </form>
+            </li>
+          </ul>
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+
+      <div class="modal" id="newick_modal" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Newick string to render</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body" id="newick_body">
+              <textarea id="nwk_spec" autofocus="true" placeholder="" style="width: 100%; height: 100%" rows="20"
+                selectionStart="1" selectionEnd="1000">
+      (a : 0.1, (b : 0.11, (c : 0.12, d : 0.13) : 0.14) : 0.15)</textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-sm" id="validate_newick">
+                Display this tree
+              </button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal" id="newick_export_modal" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body" id="newick_body">
+              <textarea id="nwk_export_spec" autofocus="true" placeholder="" style="width: 100%; height: 100%"
+                rows="20"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal" id="progress_model">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+              </button>
+              <h4 class="modal-title">Task in progress</h4>
+            </div>
+            <div class="modal-body" id="progress_model_body"></div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div id="controls">
+        <form id="controls_form" style="width:200px;"></form>
+      </div>
+
+      <div class="container" id="main_display">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="btn-toolbar" role="toolbar" id="toolbar">
+              <div class="btn-group">
+                <button type="button" class="btn btn-light btn-sm" data-direction="vertical" data-amount="1"
+                  title="Expand vertical spacing">
+                  <i class="fa fa-arrows-v"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" data-direction="vertical" data-amount="-1"
+                  title="Compress vertical spacing">
+                  <i class="fa  fa-compress fa-rotate-135"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" data-direction="horizontal" data-amount="1"
+                  title="Expand horizonal spacing">
+                  <i class="fa fa-arrows-h"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" data-direction="horizontal" data-amount="-1"
+                  title="Compress horizonal spacing">
+                  <i class="fa  fa-compress fa-rotate-45"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" id="sort_ascending"
+                  title="Sort deepest clades to the bototm">
+                  <i class="fa fa-sort-amount-asc"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" id="sort_descending"
+                  title="Sort deepsest clades to the top">
+                  <i class="fa fa-sort-amount-desc"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" id="sort_original" title="Restore original order">
+                  <i class="fa fa-sort"></i>
+                </button>
+                <button type="button" class="btn btn-light btn-sm" id="save_image" title="Save image">
+                  <i class="fa fa-picture-o"></i>
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-sm active phylotree-layout-mode" data-mode="linear">
+                  Linear
+                </button>
+                <button class="btn btn-light btn-sm phylotree-layout-mode" data-mode="radial">
+                  Radial
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-sm active phylotree-align-toggler" data-align="left">
+                  <i class="fa fa-align-left"></i>
+                </button>
+                <button class="btn btn-light btn-sm phylotree-align-toggler" data-align="right">
+                  <i class="fa fa-align-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <label class="pull-right"><b>Selected</b>
+              <span class="badge badge-secondary" id="selected_branch_counter">0</span>
+              <b>branches with current label</b></label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div id="tree_container" class="tree-widget"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="py-3 mt-2 " style="background-color: #0048ff;">
+    <h6 class="text-center  text-white "> © Design and Developed by<a href="https://www.eezahtech.com/" target="_blank"
+        class="text-dark text-decoration-none "> EezahTech.com</a> </h6>
+  </footer>
+
+  <script src="./JS/phylotreeIndexFile.js"></script>
+  <script src="./JS/logic.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+</body>
+
+</html>

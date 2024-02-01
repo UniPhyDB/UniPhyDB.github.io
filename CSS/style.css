@@ -1,0 +1,195 @@
+@font-face {
+    font-family: RobotoRegular;
+    src: url(../Roboto/roboto-regular.woff2);
+}
+
+@font-face {
+    font-family: RobotoMedium;
+    src: url(../Roboto/Roboto-Medium.woff2);
+}
+
+@font-face {
+    font-family: GillSansNova;
+    src: url(../Roboto/GillSansNova-Bold.woff2);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#navbarNav .nav-link {
+    color: white !important;
+    font-size: 1.1rem;
+}
+
+.btn-section {
+    padding: 2.5rem 12rem 1.7rem 12rem;
+}
+
+#navbarNav .navbar-nav .nav-item a {
+    font-family: RobotoRegular;
+}
+
+.large-btn {
+    padding: 0.2rem 0 !important;
+    font-size: 1.5rem !important;
+    width: 100%;
+    background-color: #0048ff !important;
+    font-family: RobotoMedium;
+    color: white !important;
+}
+
+.activeBtnSection,
+.large-btn:hover {
+    background-color: #0136bd !important;
+    color: white !important;
+}
+
+.small-btn {
+    width: 49%;
+    border-radius: unset !important;
+    padding: 2px !important;
+    box-shadow: 0px 0px 3px 1px rgb(239 239 239);
+    font-size: 0.9rem !important;
+    border: none !important;
+    font-family: RobotoRegular;
+    border: none !important;
+    background-color: white !important;
+}
+
+.activeBtnSection,
+.small-btn:hover {
+    background-color: rgb(156, 177, 246) !important;
+    color: white !important;
+}
+
+.navbar-nav .nav-item.active {
+    color: blue !important;
+}
+
+.logo-design {
+    font-family: GillSansNova;
+    font-size: 1.7rem;
+}
+
+.graph-section {
+    box-shadow: 0px 0px 3px 0px rgb(221 231 255);
+}
+
+.all-btn-section {
+    padding: 2rem 7rem;
+}
+
+.dropdown-Btn {
+    width: 100% !important;
+}
+
+.dropdown-toggle {
+    width: 100% !important;
+}
+
+#uploadFile label {
+    display: inline-block;
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #0048ff;
+    font-family: RobotoMedium;
+}
+#submitFile input {
+    display: inline-block;
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #0048ff;
+    font-family: RobotoMedium;
+    border: none !important;
+}
+
+.dropbtnFileType {
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #0048ff;
+    font-family: RobotoMedium;
+    border: none !important;
+  }
+  
+  .dropbtnFileType:hover, .dropbtnFileType:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdownFileType {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .dropdown-content-FileType {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 270px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content-FileType a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdownFileType a:hover {background-color: #ddd;}
+  
+  .showFileTypeBtn {display: block;}
+
+  .btn-toolbar{
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  #main_display{
+    margin-top: 2rem;
+  }
+
+@media (max-width: 680px) {
+    .btn-section {
+        padding: 2rem 5rem;
+    }
+}
+
+@media only screen and (min-width: 681px) and (max-width: 768px) {
+    .btn-section {
+        padding: 2rem 4rem 1.5rem 4rem;
+    }
+
+    .small-btn {
+        width: 48%;
+        font-size: 0.7rem !important;
+    }
+
+    .large-btn {
+        padding: 0.2rem 0 !important;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .btn-section {
+        padding: 2rem 6rem;
+    }
+
+    .small-btn {
+        /* width: 48%; */
+        font-size: 0.8rem !important;
+    }
+}
