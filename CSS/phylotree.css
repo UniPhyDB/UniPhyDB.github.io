@@ -89,7 +89,10 @@ stroke: #CCC;
 }
 
 .tree-widget {
+  /*overflow-x: auto;*/
 }
+
+
 
 /* index file css  */
 

@@ -10,8 +10,6 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
-  <!-- add new links for phyloTree  -->
-
   <!-- Latest compiled and minified CSS -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -33,7 +31,7 @@
 
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
   <script src="//d3js.org/d3.v6.js"></script>
-  <script src="./JS/phylotree.js"></script>
+  <script src="./JS/phylotree.min.js"></script>
   <link href="./CSS/phylotree.css" rel="stylesheet" />
 
 </head>
@@ -43,7 +41,7 @@
   <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #0048ff;">
     <div class="container px-5">
       <!-- Left side with logo -->
-      <a class=" text-white logo-design fs-3" href="#">
+      <a class=" text-white logo-design fs-3" href="#" >
         phyloBUSCO
       </a>
 
@@ -63,7 +61,7 @@
             <a class="nav-link" href="./placeGenome.html">Place genome</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Browse</a>
+            <a class="nav-link" href="./browse.html">Browse</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -82,9 +80,9 @@
               onclick="activeButton('plantBtn')">Plant</button>
           </div>
           <div class="my-lg-2 my-md-1 my-2">
-            <button class="btn  text-primary small-btn " id="monocotBtn"
-              onclick="activeButton('monocotBtn')">Monocot</button>
-            <button class="btn  text-primary small-btn " id="dicotBtn" onclick="activeButton('dicotBtn')">Dicot</button>
+            <button class="btn small-btn activeBtnSection " id="monocotBtn"
+              onclick="activeButton('monocotBtn')"  >Monocot</button>
+            <button class="btn small-btn " id="dicotBtn" onclick="activeButton('dicotBtn')">Dicot</button>
           </div>
         </div>
         <div class="col-sm-12 col-md-4 text-center">
@@ -93,9 +91,9 @@
               onclick="activeButton('fungiBtn')">Fungi</button>
           </div>
           <div class="my-2 my-lg-2 my-md-1">
-            <button class="btn  text-primary small-btn " id="ascomycetesBtn"
+            <button class="btn small-btn " id="ascomycetesBtn"
               onclick="activeButton('ascomycetesBtn')">Ascomycetes </button>
-            <button class="btn  text-primary small-btn " id="basidiomycetesBtn"
+            <button class="btn small-btn " id="basidiomycetesBtn"
               onclick="activeButton('basidiomycetesBtn')"> Basidiomycetes</button>
           </div>
         </div>
@@ -105,9 +103,9 @@
               onclick="activeButton('animalBtn')">Animal</button>
           </div>
           <div class="my-2 my-lg-2 my-md-1">
-            <button class="btn  text-primary small-btn " id="arthropodsBtn"
+            <button class="btn small-btn " id="arthropodsBtn"
               onclick="activeButton('arthropodsBtn')">Arthropods</button>
-            <button class="btn  text-primary small-btn " id="chrodatesBtn"
+            <button class="btn small-btn " id="chrodatesBtn"
               onclick="activeButton('chrodatesBtn')">Chrodates</button>
           </div>
         </div>
@@ -116,17 +114,17 @@
   </section>
 
   <section>
-    <div class="container .graph-section">
+    <div class="container graph-section p-0">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">phylotree.js</a>
+      <nav class="navbar navbar-expand-lg navbar-light graph-tree-nav">
+        <a class="navbar-brand " href="#" style="color: #fff;">Phylotree.js</a>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a href="#" id="newick-dropdown" class="nav-link dropdown-toggle" role="button"
-                data-toggle="dropdown">Newick <b class="caret"></b></a>
+                data-toggle="dropdown" style="color: #fff;">Newick <b class="caret"></b></a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#newick_modal">Input Text</a>
 
@@ -142,7 +140,7 @@
             </li>
           </ul>
 
-          <ul class="nav navbar-nav mx-auto">
+          <!-- <ul class="nav navbar-nav mx-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -193,16 +191,17 @@
                 <a id="or_label" class="dropdown-item" href="#">Label internal nodes using disjunction (OR)</a>
               </div>
             </li>
-          </ul>
+          </ul> -->
 
-          <ul class="navbar-nav ml-auto">
+          <!-- <ul class="navbar-nav ml-auto">
             <li>
               <form class="form-inline my-2 my-lg-0">
                 <input type="text" id="branch_filter" class="form-control mr-sm-2" placeholder="Filter branches on"
                   onkeypress="return event.keyCode != 13" />
               </form>
             </li>
-          </ul>
+          </ul> -->
+
         </div>
         <!-- /.container-fluid -->
       </nav>
@@ -232,7 +231,6 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-
       <div class="modal" id="newick_export_modal" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -309,19 +307,19 @@
                   <i class="fa fa-picture-o"></i>
                 </button>
               </div>
-              <div class="btn-group" role="group">
+              <!-- <div class="btn-group" role="group">
                 <button class="btn btn-light btn-sm active phylotree-layout-mode" data-mode="linear">
                   Linear
                 </button>
                 <button class="btn btn-light btn-sm phylotree-layout-mode" data-mode="radial">
                   Radial
                 </button>
-              </div>
+              </div> -->
               <div class="btn-group" role="group">
-                <button class="btn btn-light btn-sm active phylotree-align-toggler" data-align="left">
+                <button class="btn  btn-sm  phylotree-align-toggler" data-align="left">
                   <i class="fa fa-align-left"></i>
                 </button>
-                <button class="btn btn-light btn-sm phylotree-align-toggler" data-align="right">
+                <button class="btn  btn-sm active phylotree-align-toggler" data-align="right">
                   <i class="fa fa-align-right"></i>
                 </button>
               </div>
@@ -329,9 +327,9 @@
           </div>
 
           <div class="col-md-4">
-            <label class="pull-right"><b>Selected</b>
+            <!-- <label class="pull-right"><b>Selected</b>
               <span class="badge badge-secondary" id="selected_branch_counter">0</span>
-              <b>branches with current label</b></label>
+              <b>branches with current label</b></label> -->
           </div>
         </div>
 
@@ -345,17 +343,15 @@
     </div>
   </section>
 
-  <footer class="py-3 mt-2 " style="background-color: #0048ff;">
-    <h6 class="text-center  text-white "> © Design and Developed by<a href="https://www.eezahtech.com/" target="_blank"
-        class="text-dark text-decoration-none "> EezahTech.com</a> </h6>
+  <footer class="mt-5 text-center footer-section ">
+    <h6 class="text-center  text-white m-0 "> Website Developed by <a href="https://www.eezahtech.com/" target="_blank"
+        class=" footer-link "  >EezahTech.com</a> </h6>
+    <h6 class="text-center  text-white m-0 ">Treeviewer adapted from <a href="https://github.com/veg/phylotree.js"
+      class=" footer-link" > https://github.com/veg/phylotree.js</a> </h6>
   </footer>
 
   <script src="./JS/phylotreeIndexFile.js"></script>
   <script src="./JS/logic.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-
 </body>
 
 </html>

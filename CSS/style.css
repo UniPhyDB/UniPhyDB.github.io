@@ -41,12 +41,6 @@
     color: white !important;
 }
 
-.activeBtnSection,
-.large-btn:hover {
-    background-color: #0136bd !important;
-    color: white !important;
-}
-
 .small-btn {
     width: 49%;
     border-radius: unset !important;
@@ -57,12 +51,20 @@
     font-family: RobotoRegular;
     border: none !important;
     background-color: white !important;
+    color: rgb(42, 42, 230);
+}
+
+.activeBtnSection,
+.large-btn:hover {
+    background-color: #0136bd !important;
+    /* color: white !important; */
 }
 
 .activeBtnSection,
 .small-btn:hover {
     background-color: rgb(156, 177, 246) !important;
-    color: white !important;
+    color: rgb(42, 42, 230) !important;
+
 }
 
 .navbar-nav .nav-item.active {
@@ -72,10 +74,13 @@
 .logo-design {
     font-family: GillSansNova;
     font-size: 1.7rem;
+    text-decoration: none !important;
 }
 
 .graph-section {
     box-shadow: 0px 0px 3px 0px rgb(221 231 255);
+    padding: 0; 
+    font-family: RobotoMedium;
 }
 
 .all-btn-section {
@@ -99,7 +104,9 @@
     cursor: pointer;
     background-color: #0048ff;
     font-family: RobotoMedium;
+    text-align: center;
 }
+
 #submitFile input {
     display: inline-block;
     color: white;
@@ -112,7 +119,7 @@
     border: none !important;
 }
 
-.dropbtnFileType {
+.dropBtnFileType {
     color: white;
     width: 100%;
     padding: 0.5rem;
@@ -121,50 +128,162 @@
     background-color: #0048ff;
     font-family: RobotoMedium;
     border: none !important;
-  }
-  
-  .dropbtnFileType:hover, .dropbtnFileType:focus {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropBtnFileType:hover,
+.dropBtnFileType:focus {
     background-color: #2980B9;
-  }
-  
-  .dropdownFileType {
+}
+
+.dropdownFileType {
     position: relative;
     display: inline-block;
     width: 100%;
-  }
-  
-  .dropdown-content-FileType {
+}
+
+.dropdown-content-FileType {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 270px;
+    background-color: #fff;
+    min-width: 274px;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 5px 1px rgb(238, 235, 235);
     z-index: 1;
-  }
-  
-  .dropdown-content-FileType a {
+    margin-top: 0.3rem;
+    padding: 0.5rem;
+}
+
+.dropdown-content-FileType a {
     color: black;
-    padding: 12px 16px;
+    padding: 0.2rem;
     text-decoration: none;
     display: block;
-  }
-  
-  .dropdownFileType a:hover {background-color: #ddd;}
-  
-  .showFileTypeBtn {display: block;}
+    margin-bottom: 0.2rem;
+}
 
-  .btn-toolbar{
+.dropdownFileType a:hover {
+    background-color: #d8d7e4;
+    text-decoration: none;
+    color: black;
+}
+
+.showFileTypeBtn {
+    display: block;
+}
+
+.dropdownLineage{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdownLineage a:hover {
+    background-color: #d8d7e4;
+    text-decoration: none;
+    color: black;
+}
+
+.dropBtnLineage{
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #0048ff;
+    font-family: RobotoMedium;
+    border: none !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropBtnLineage:hover,
+.dropBtnLineage:focus {
+    background-color: #2980B9;
+}
+
+.dropdown-content-Lineage{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 274px;
+    overflow: auto;
+    box-shadow: 1px 1px 5px 1px rgb(238, 235, 235);
+    z-index: 1;
+    margin-top: 0.3rem;
+    padding: 0.5rem;
+}
+
+.dropdown-content-Lineage a {
+    color: black;
+    padding: 0.2rem;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.showLineageBtn{
+    display: block;
+}
+
+.btn-toolbar {
     display: flex !important;
     justify-content: space-between !important;
-  }
-  #main_display{
+}
+
+#main_display {
     margin-top: 2rem;
-  }
+}
+
+.graph-tree-nav{
+    box-shadow: 0px 0px 4px 2px rgb(239 239 239);
+    background-color: #0048ff !important;
+    font-family: RobotoRegular;
+}
+
+.phylotree-align-toggler{
+    background-color: white;
+    color: blue;
+    border: 1px solid blue !important;
+}
+
+.btn:not(:disabled):not(.disabled).active {
+    background-color: blue !important;
+    color: white !important;
+
+}
+
+.footer-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 6.2rem;
+    background-color: #0048ff;
+
+}
+
+.footer-link{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    color: #ebe9e9;
+}
+
+#myTable_wrapper{
+    min-height: 410px;
+}
 
 @media (max-width: 680px) {
     .btn-section {
         padding: 2rem 5rem;
+    }
+
+    .graph-section #toolbar {
+        width: 0;
     }
 }
 

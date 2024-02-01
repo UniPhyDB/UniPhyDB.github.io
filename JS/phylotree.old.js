@@ -1659,7 +1659,7 @@
     if (this.radial()) {
       return [
         (d.text_align == "end" ? -1 : 1) *
-        (this.radius_pad_for_bubbles - d.radius),
+          (this.radius_pad_for_bubbles - d.radius),
         0
       ];
     }
@@ -1684,15 +1684,14 @@
     var labels = container.selectAll("text").data([node]),
       tracers = container.selectAll("line");
 
-    if (is_leaf || (this.showInternalName(node))) {//} && isNodeCollapsed(node))) {
-      //  if (is_leaf || (this.showInternalName(node) && !isNodeCollapsed(node))) {
-      // This method contains logic for showing intermediate labels with different styles
+    if (is_leaf || (this.showInternalName(node) && !isNodeCollapsed(node))) {
+
       labels = labels
         .enter()
         .append("text")
         .classed(this.css_classes["node_text"], true)
         .merge(labels)
-        .on("click", d => {
+        .on("click", d=> {
           this.handle_node_click(node, d);
         })
         .attr("dy", d => {
@@ -1703,30 +1702,6 @@
         })
         .style("font-size", d => {
           return this.ensure_size_is_in_px(this.shown_font_size);
-        })
-        .style("font-weight", d => {
-          if (isNodeCollapsed(node)) {
-            return "bold";
-          }
-          else {
-            return "normal";
-          }
-        })
-        .style("text-decoration", d => {
-          if (is_leaf) {
-            return "normal";
-          }
-          else {
-            return "underline";
-          }
-        })
-        .style("fill", d => {
-          if (isNodeCollapsed(node)) {
-            return "green";
-          }
-          else {
-            return "#777";
-          }
         });
 
       if (this.radial()) {
@@ -1743,75 +1718,71 @@
             return d.text_align;
           });
       } else {
-        if (is_leaf) { // do this only if leaf_node
-          labels = labels.attr("text-anchor", "start").attr("transform", d => {
-            if (this.options["layout"] == "right-to-left") {
-              return this.d3PhylotreeSvgTranslate([-20, 0]);
-            }
-            return this.d3PhylotreeSvgTranslate(
-              this.alignTips() ? this.shiftTip(d) : null
-            );
-          });
-        }
+        labels = labels.attr("text-anchor", "start").attr("transform", d => {
+          if (this.options["layout"] == "right-to-left") {
+            return this.d3PhylotreeSvgTranslate([-20, 0]);
+          }
+          return this.d3PhylotreeSvgTranslate(
+            this.alignTips() ? this.shiftTip(d) : null
+          );
+        });
       }
 
       if (this.alignTips()) {
         tracers = tracers.data([node]);
-        // add dotted lines if leaf-node
-        if (this._nodeLabel(node) != "" && this._nodeLabel(node) != undefined && is_leaf) {// because we need to show dotted line only if label exists
-          if (transitions) {
-            tracers = tracers
-              .enter()
-              .append("line")
-              .classed(this.css_classes["branch-tracer"], true)
-              .merge(tracers)
-              .attr("x1", d => {
-                return (
-                  (d.text_align == "end" ? -1 : 1) * this.nodeBubbleSize(node)
-                );
-              })
-              .attr("x2", 0)
-              .attr("y1", 0)
-              .attr("y2", 0)
-              .attr("x2", d => {
-                if (this.options["layout"] == "right-to-left") {
-                  return d.screen_x;
-                }
 
-                return this.shiftTip(d)[0];
-              })
-              .attr("transform", d => {
-                return this.d3PhylotreeSvgRotate(d.text_angle);
-              })
-              .attr("x2", d => {
-                if (this.options["layout"] == "right-to-left") {
-                  return d.screen_x;
-                }
-                return this.shiftTip(d)[0];
-              })
-              .attr("transform", d => {
-                return this.d3PhylotreeSvgRotate(d.text_angle);
-              });
-          } else {
-            tracers = tracers
-              .enter()
-              .append("line")
-              .classed(this.css_classes["branch-tracer"], true)
-              .merge(tracers)
-              .attr("x1", d => {
-                return (
-                  (d.text_align == "end" ? -1 : 1) * this.nodeBubbleSize(node)
-                );
-              })
-              .attr("y2", 0)
-              .attr("y1", 0)
-              .attr("x2", d => {
-                return this.shiftTip(d)[0];
-              });
-            tracers.attr("transform", d => {
+        if (transitions) {
+          tracers = tracers
+            .enter()
+            .append("line")
+            .classed(this.css_classes["branch-tracer"], true)
+            .merge(tracers)
+            .attr("x1", d => {
+              return (
+                (d.text_align == "end" ? -1 : 1) * this.nodeBubbleSize(node)
+              );
+            })
+            .attr("x2", 0)
+            .attr("y1", 0)
+            .attr("y2", 0)
+            .attr("x2", d => {
+              if (this.options["layout"] == "right-to-left") {
+                return d.screen_x;
+              }
+
+              return this.shiftTip(d)[0];
+            })
+            .attr("transform", d => {
+              return this.d3PhylotreeSvgRotate(d.text_angle);
+            })
+            .attr("x2", d => {
+              if (this.options["layout"] == "right-to-left") {
+                return d.screen_x;
+              }
+              return this.shiftTip(d)[0];
+            })
+            .attr("transform", d => {
               return this.d3PhylotreeSvgRotate(d.text_angle);
             });
-          }
+        } else {
+          tracers = tracers
+            .enter()
+            .append("line")
+            .classed(this.css_classes["branch-tracer"], true)
+            .merge(tracers)
+            .attr("x1", d => {
+              return (
+                (d.text_align == "end" ? -1 : 1) * this.nodeBubbleSize(node)
+              );
+            })
+            .attr("y2", 0)
+            .attr("y1", 0)
+            .attr("x2", d => {
+              return this.shiftTip(d)[0];
+            });
+          tracers.attr("transform", d => {
+            return this.d3PhylotreeSvgRotate(d.text_angle);
+          });
         }
       } else {
         tracers.remove();
@@ -1827,7 +1798,7 @@
           .enter()
           .append("circle");
 
-        circles.attr("r", function (d) {
+        circles.attr("r", function(d) {
           return d;
         });
 
@@ -1850,10 +1821,10 @@
 
     if (!is_leaf) {
       let circles = container
-        .selectAll("circle")
-        .data([node])
-        .enter()
-        .append("circle"),
+          .selectAll("circle")
+          .data([node])
+          .enter()
+          .append("circle"),
         radius = this.node_circle_size()(node);
 
       if (radius > 0) {
@@ -1864,8 +1835,6 @@
           })
           .on("click", d => {
             this.handle_node_click(node, d);
-          }).append("title").text(d => {
-            return this._nodeLabel(d);//this.options["show-labels"] ? this._nodeLabel(d) : "";
           });
       } else {
         circles.remove();
@@ -1886,7 +1855,7 @@
       if (isLeafNode(nodes[k])) {
         nodes[k].hasHiddenNodes = nodes[k].notshown;
       } else {
-        nodes[k].hasHiddenNodes = nodes[k].children.reduce(function (p, c) {
+        nodes[k].hasHiddenNodes = nodes[k].children.reduce(function(p, c) {
           return c.notshown || p;
         }, false);
       }
@@ -1921,7 +1890,7 @@
   function nodeSpan(attr) {
     if (!arguments.length) return this.nodeSpan;
     if (typeof attr == "string" && attr == "equal") {
-      this.nodeSpan = function (d) {
+      this.nodeSpan = function(d) {
         return 1;
       };
     } else {
@@ -1976,7 +1945,7 @@
       css_classes["collapsed-node"],
       css_classes["tagged-node"],
       css_classes["root-node"]
-    ].reduce(function (p, c, i, a) {
+    ].reduce(function(p, c, i, a) {
       return (p += "g." + c + (i < a.length - 1 ? "," : ""));
     }, "");
   }
@@ -2029,7 +1998,7 @@
   function nodeLabel(attr) {
     if (!arguments.length) return this._nodeLabel;
     this._nodeLabel = attr ? attr : defNodeLabel;
-    this.update();
+  	this.update();
     return this;
   }
 
@@ -2997,7 +2966,7 @@
         bootstrap: false,
         "color-fill": true,
         "font-size": 14,
-        "internal-names": true, // by default is it false, we will true
+        "internal-names": false,
         selectable: true,
         // restricted-selectable can take an array of predetermined
         // selecters that are defined in phylotree.predefined_selecters
@@ -3018,7 +2987,7 @@
         "max-radius": 768,
         "annular-limit": 0.38196601125010515,
         compression: 0.2,
-        "align-tips": true,// by default it is left, for our requirements, we make it true
+        "align-tips": false,
         "maximum-per-node-spacing": 100,
         "minimum-per-node-spacing": 2,
         "maximum-per-level-spacing": 100,
@@ -3242,7 +3211,7 @@
         .selectAll("." + css_classes["tree-container"])
         .data([0]);
 
-  //    this.updateCollapsedClades(transitions); // do not show clades shape
+  //    this.updateCollapsedClades(transitions);
 
       let drawn_links = enclosure
         .selectAll(edgeCssSelectors(css_classes))
@@ -3934,7 +3903,7 @@
           if (d.collapsed) {
             d.collapsed.forEach(p => {
               p[0] *= this.scales[0];
-              p[1] *= this.scales[0];//this.scales[1]*.99;
+              p[1] *= this.scales[1]*.99;
             });
 
             let last_x = d.collapsed[1][0];

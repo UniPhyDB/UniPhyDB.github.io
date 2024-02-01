@@ -1,64 +1,96 @@
-function activeButton (buttonId){
-    
-    var buttons = document.querySelectorAll(".btn");
-    buttons.forEach( (button) => button.classList.remove("activeBtnSection", ) );
+function activeButton(buttonId) {
+  var buttons = document.querySelectorAll(".btn");
+  buttons.forEach((button) => button.classList.remove("activeBtnSection"));
 
-    var clickButton = document.getElementById(buttonId);
-    clickButton.classList.add("activeBtnSection", )
+  var clickButton = document.getElementById(buttonId);
+  clickButton.classList.add("activeBtnSection");
 
-    switch(buttonId){
-        case "plantBtn": 
-        alert("Plant Button is Active");
-        break;
-        case "fungiBtn" : 
-        alert("Fungi Button is Active");
-        break;
-        case "animalBtn": 
-        alert("Animal Button is Active");
-        break;
-        case "monocotBtn": 
-        alert("Monocot Button is Active");
-        break;
-        case "dicotBtn": 
-        alert("Dicot Button is Active");
-        break;
-        case "ascomycetesBtn": 
-        alert("Ascomycetes Button is Active");
-        break;
-        case "basidiomycetesBtn": 
-        alert("Basidiomycetes Button is Active");
-        break;
-        case "arthropodsBtn": 
-        alert("Arthropods Button is Active");
-        break;
-        case "chrodatesBtn": 
-        alert("Chrodates Button is Active");
-        break;
-    }
-
+  switch (buttonId) {
+    case "plantBtn":
+      break;
+    case "fungiBtn":
+      break;
+    case "animalBtn":
+      break;
+    case "monocotBtn":
+      break;
+    case "dicotBtn":
+      break;
+    case "ascomycetesBtn":
+      break;
+    case "basidiomycetesBtn":
+      break;
+    case "arthropodsBtn":
+      break;
+    case "chrodatesBtn":
+      break;
+  }
 }
 
-function myFunction() {
-    document.getElementById("myDropdownFileType").classList.toggle("showFileTypeBtn");
+function fileTypeDropDownBtn() {
+  document
+    .getElementById("myDropdownFileType")
+    .classList.toggle("showFileTypeBtn");
+  const dropDownFileTypeBtnId = document.getElementById("myDropdownFileType");
+  dropDownFileTypeBtnId.style.display = dropDownFileTypeBtnId.style.display === "block" ? "none" : "block";
+  if (dropDownFileTypeBtnId.style.display === "block") {
+    document.querySelector(".dropDownFileTypeIcon").style.transform =
+      "rotate(180deg)";
+  } else {
+    document.querySelector(".dropDownFileTypeIcon").style.transform =
+      "rotate(0deg)";
   }
-  
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtnFileType')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content-FileType");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('showFileTypeBtn')) {
-          openDropdown.classList.remove('showFileTypeBtn');
-        }
+}
+
+function LineageDropDownBtn() {
+  document
+    .getElementById("myDropdownLineage")
+    .classList.toggle("showLineageBtn");
+  const dropDownLineageBtnId = document.getElementById("myDropdownLineage");
+  dropDownLineageBtnId.style.display =
+  dropDownLineageBtnId.style.display === "block" ? "none" : "block";
+  if (dropDownLineageBtnId.style.display === "block") {
+    document.querySelector(".dropDownLineageIcon").style.transform =
+      "rotate(180deg)";
+  } else {
+    document.querySelector(".dropDownLineageIcon").style.transform =
+      "rotate(0deg)";
+  }
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".dropBtnFileType")) {
+    let dropdownsFileTypeBtnValue = document.getElementsByClassName(
+      "dropdown-content-FileType"
+    );
+    document.querySelector(".dropDownFileTypeIcon").style.transform =
+      "rotate(0deg)";
+    for (let i = 0; i < dropdownsFileTypeBtnValue.length; i++) {
+      let openDropdownFileTypeBtn = dropdownsFileTypeBtnValue[i];
+      if (openDropdownFileTypeBtn.classList.contains("showFileTypeBtn")) {
+        openDropdownFileTypeBtn.classList.remove("showFileTypeBtn");
+        document.getElementById("myDropdownFileType").style.display = "none";
       }
     }
   }
 
+  if (!event.target.matches(".dropBtnLineage")) {
+    let dropdownsLineageBtnValue = document.getElementsByClassName(
+      "dropdown-content-Lineage"
+    );
+    document.querySelector(".dropDownLineageIcon").style.transform =
+      "rotate(0deg)";
+    for (let i = 0; i < dropdownsLineageBtnValue.length; i++) {
+      let openDropdownLineageBtn = dropdownsLineageBtnValue[i];
+      if (openDropdownLineageBtn.classList.contains("showLineageBtn")) {
+        openDropdownLineageBtn.classList.remove("showLineageBtn");
+        document.getElementById("myDropdownLineage").style.display = "none";
+      }
+    }
+  }
+};
 
-
-
-
-
-
+$(document).ready(function () {
+  $('#myTable').DataTable();
+});
