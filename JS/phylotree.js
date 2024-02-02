@@ -1698,6 +1698,9 @@
         .attr("dy", d => {
           return this.shown_font_size * 0.33;
         })
+        .style("cursor", d => {
+          return "default";
+        })
         .text(d => {
           return this.options["show-labels"] ? this._nodeLabel(d) : "";
         })
@@ -2323,22 +2326,26 @@
    * @returns {Phylotree} The current ``phylotree``.
    */
   function toggleCollapse(node) {
-    if (node.collapsed) {
-      node.collapsed = false;
+    //debugger;
+    //console.log("toggleCollapse  33");
+    //if(node!=undefined && node.collapsed!=undefined){
+      if ( node.collapsed) {
+        node.collapsed = false;
 
-      let unhide = function(n) {
-        if (!isLeafNode(n)) {
-          if (!n.collapsed) {
-            n.children.forEach(unhide);
+        let unhide = function(n) {
+          if (!isLeafNode(n)) {
+            if (!n.collapsed) {
+              n.children.forEach(unhide);
+            }
           }
-        }
-        n.hidden = false;
-      };
+          n.hidden = false;
+        };
 
-      unhide(node);
-    } else {
-      node.collapsed = true;
-    }
+        unhide(node);
+      } else {
+        node.collapsed = true;
+      }
+    //}
 
     this.placenodes();
     return this;
@@ -3025,7 +3032,7 @@
         "minimum-per-level-spacing": 10,
         node_circle_size: constant(3),
         transitions: null,
-        brush: true,
+        brush: false, // by default it is true,
         reroot: true,
         hide: true,
         "label-nodes-with-name": false,
@@ -3904,12 +3911,13 @@
             });
           }
         });
-
+  //console.log("placenodes(). radial part");
         this.size[0] = this.radial_center + this.radius / scaler;
         this.size[1] = this.radial_center + this.radius / scaler;
       } else {
   this.do_lr();
-
+  //console.log("placenodes(). else part");
+  //debugger;
         this.draw_branch = draw_line;
         this.edge_placer = lineSegmentPlacer;
         this.right_most_leaf = 0;
@@ -3932,9 +3940,10 @@
           }
 
           if (d.collapsed) {
+            //d.y=10;
             d.collapsed.forEach(p => {
               p[0] *= this.scales[0];
-              p[1] *= this.scales[0];//this.scales[1]*.99;
+              p[1] *= this.scales[1]*.8;
             });
 
             let last_x = d.collapsed[1][0];
