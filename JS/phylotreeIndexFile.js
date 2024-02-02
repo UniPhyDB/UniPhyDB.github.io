@@ -1207,25 +1207,9 @@ $("#plantBtn").click(function () {
     datamonkey_save_image("svg", "#tree_container");
   });
 });
-$("#tree_container").css("min-height", "188px");
-
-$(document).ready(function () {
-  $('#myTable').DataTable();
-});
-
-$(document).ready(function () {
-  $('#myDataTable').DataTable({
-      paging: true,  // Enable pagination
-      searching: true,  // Enable searching
-      ordering: true,  // Enable sorting
-      responsive: true  // Enable responsive design
-      // Add more options as needed
-  });
-});
-
-$("#myTable_wrapper").css("min-height", "410px");
-
-
+$("#phyloTree_Graph_Section").css("min-height", "329px");
+// $("#table_section").css("min-height", "371px");
+$("#main_container").css("min-height", "571px");
 var _warn = console.warn;
 
 console.warn = function () {

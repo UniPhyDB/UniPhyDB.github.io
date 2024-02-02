@@ -64,7 +64,6 @@
 .small-btn:hover {
     background-color: rgb(156, 177, 246) !important;
     color: rgb(42, 42, 230) !important;
-
 }
 
 .navbar-nav .nav-item.active {
@@ -81,6 +80,10 @@
     box-shadow: 0px 0px 3px 0px rgb(221 231 255);
     padding: 0; 
     font-family: RobotoMedium;
+}
+
+.graph-section-placeGenome{
+    box-shadow: 0px 0px 3px 0px rgb(221 231 255);
 }
 
 .all-btn-section {
@@ -271,10 +274,69 @@
 
 .footer-link:hover{
     color: #ebe9e9;
+    text-decoration: none   ;
 }
 
-#myTable_wrapper{
-    min-height: 410px;
+#loader-heading{
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 70%;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    padding: 1rem; 
+    text-align: center;
+    margin: -45px 0 0 -45px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #0048ff;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  #loader{
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    padding: 1rem; 
+    text-align: center;
+    margin: -45px 0 0 -45px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #0048ff;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #myTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin: 0;
+}
+
+#myTable th, #myTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#myTable th {
+    background-color: #f2f2f2;
 }
 
 @media (max-width: 680px) {

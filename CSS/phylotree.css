@@ -88,11 +88,9 @@ fill: black;
 stroke: #CCC;
 }
 
-.tree-widget {
-  /*overflow-x: auto;*/
-}
-
-
+/* .tree-widget {
+  overflow-x: auto;
+} */
 
 /* index file css  */
 

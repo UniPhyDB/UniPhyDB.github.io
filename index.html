@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>phyloBUSCO</title>
   <link rel="stylesheet" href="./CSS/style.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
-
+  <link href="./CSS/phylotree.css" rel="stylesheet" />
   <!-- Latest compiled and minified CSS -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-
   <!-- Optional theme -->
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootswatch/4.1.1/spacelab/bootstrap.min.css" />
-
   <!-- Latest compiled and minified JavaScript -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -28,29 +21,22 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
   <script src="//d3js.org/d3.v6.js"></script>
   <script src="./JS/phylotree.min.js"></script>
-  <link href="./CSS/phylotree.css" rel="stylesheet" />
-
 </head>
-
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #0048ff;">
     <div class="container px-5">
       <!-- Left side with logo -->
-      <a class=" text-white logo-design fs-3" href="#" >
+      <a class=" text-white logo-design " href="./index.html" >
         phyloBUSCO
       </a>
-
       <!-- Navbar toggle button for small screens -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <!-- Right side with links -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
@@ -70,7 +56,6 @@
       </div>
     </div>
   </nav>
-
   <section>
     <div class="container">
       <div class="row btn-section">
@@ -112,12 +97,11 @@
       </div>
     </div>
   </section>
-
   <section>
-    <div class="container graph-section p-0">
+    <div class="container graph-section p-0" id = "phyloTree_Graph_Section">
 
       <nav class="navbar navbar-expand-lg navbar-light graph-tree-nav">
-        <a class="navbar-brand " href="#" style="color: #fff;">Phylotree.js</a>
+        <a class="navbar-brand " href="https://github.com/veg/phylotree.js" target="_blank" style="color: #fff;">Phylotree.js</a>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -230,6 +214,7 @@
         </div>
         <!-- /.modal-dialog -->
       </div>
+
       <!-- /.modal -->
       <div class="modal" id="newick_export_modal" role="dialog">
         <div class="modal-dialog" role="document">
@@ -270,7 +255,7 @@
       <div id="controls">
         <form id="controls_form" style="width:200px;"></form>
       </div>
-
+      
       <div class="container" id="main_display">
         <div class="row">
           <div class="col-md-8">
@@ -339,19 +324,16 @@
           </div>
         </div>
       </div>
-
+      <h1 id="loader-heading"></h1>
     </div>
   </section>
-
   <footer class="mt-5 text-center footer-section ">
     <h6 class="text-center  text-white m-0 "> Website Developed by <a href="https://www.eezahtech.com/" target="_blank"
         class=" footer-link "  >EezahTech.com</a> </h6>
     <h6 class="text-center  text-white m-0 ">Treeviewer adapted from <a href="https://github.com/veg/phylotree.js"
-      class=" footer-link" > https://github.com/veg/phylotree.js</a> </h6>
+      class=" footer-link" target="_blank"> https://github.com/veg/phylotree.js</a> </h6>
   </footer>
-
   <script src="./JS/phylotreeIndexFile.js"></script>
   <script src="./JS/logic.js"></script>
 </body>
-
 </html>

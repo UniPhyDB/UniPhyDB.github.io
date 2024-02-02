@@ -1,133 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse</title>
-
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/phylotree.css">
-    <script src="./JS/phylotreeIndexFile.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #0048ff;">
         <div class="container px-5">
-            <!-- Left side with logo -->
-            <a class="navbar-brand text-white logo-design fs-3" href="#">
-                phyloBUSCO
-            </a>
-
-            <!-- Navbar toggle button for small screens -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Right side with links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./index.html">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./placeGenome.html">Place genome</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./browse.html">Browse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                </ul>
-            </div>
+          <!-- Left side with logo -->
+          <a class=" text-white logo-design " href="./index.html" >
+            phyloBUSCO
+          </a>
+    
+          <!-- Navbar toggle button for small screens -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- Right side with links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="./index.html">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./placeGenome.html">Place genome</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./browse.html">Browse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
         </div>
     </nav>
+    <div class="container" id="mainContainer">
+        <p class="mt-3"> <a href="./index.html" class="text-secondary" style="text-decoration: none;" >Home >></a> <a href="./browse.html" style="text-decoration: underline;"> Browse </a>
+        </p>
+        <h4 class=" text-center ">Data</h4>
 
-    <div class="container">
-        <p class="mt-3"> <a href="./index.html" class="text-secondary">Home >></a> <a href="./browse.html">
-                Browse </a></p>
-        <h1 class=" text-center py-1">Data</h1>
-        <table id="myTable" class="display">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011-04-25</td>
-                    <td>$320,800</td>
-                </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011-07-25</td>
-                    <td>$170,750</td>
-                </tr>
-                <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009-01-12</td>
-                    <td>$86,000</td>
-                </tr>
-                <tr>
-                    <td>Cedric Kelly</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td>22</td>
-                    <td>2012-03-29</td>
-                    <td>$433,060</td>
-                </tr>
-
-            </tbody>
-        </table>
+        <div id="table_section">
+            <div id="loader" class="loader"></div>
+            <table id="myTable" class="display" style=" width:100%;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Assembly</th>
+                        <th>Level</th>
+                        <th>Size(Mb)</th>
+                        <th>Lineage</th>
+                        <th class="width: 150px;">Single USCO</th>
+                        <th>Duplicated USCO</th>
+                        <th>Kingdom</th>
+                        <th>Phylum</th>
+                        <th>Class</th>
+                        <th>Order</th>
+                        <th>Genus</th>
+                        <th>GC%</th>
+                        <th>Release Date</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
     </div>
-
-
     <footer class="mt-5 text-center footer-section ">
         <h6 class="text-center  text-white m-0 "> Website Developed by <a href="https://www.eezahtech.com/"
                 target="_blank" class="footer-link">EezahTech.com</a>
         </h6>
         <h6 class="text-center  text-white m-0 ">Treeviewer adapted from <a href="https://github.com/veg/phylotree.js"
-                class="footer-link">
+                class="footer-link" target="_blank">
                 https://github.com/veg/phylotree.js</a> </h6>
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
     <script src="./JS/logic.js"></script>
     <script src="./JS/phylotreeIndexFile.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script>
+        document.getElementById("mainContainer").style.minHeight = "467px";
+        $(document).ready(function () {
+            // Fetch JSON data 
+            $.ajax({
+                url: './JS/buscoDb.json',
+                dataType: 'json',
+                success: function (data) {
+                    // Hide loader
+                    $('#loader').hide();
+                    // Initialize DataTable with fetched data
+                    $('#myTable').DataTable({
+                        scrollX: true,
+                        responsive: true,
+                        data: data,
+                        columns: [
+                            { data: 'Name', width: "20%" },
+                            { data: 'Assembly', width: "10%" },
+                            { data: 'Level', width: "10%" },
+                            { data: 'Size(Mb)', width: "10%" },
+                            { data: 'Lineage', width: "10%" },
+                            { data: 'Single USCO', width: "10%" },
+                            { data: 'Duplicated USCO', width: "10%" },
+                            { data: 'Kingdom', width: "10%" },
+                            { data: 'Phylum', width: "10%" },
+                            { data: 'Class', width: "10%" },
+                            { data: 'Order', width: "10%" },
+                            { data: 'Genus', width: "10%" },
+                            { data: 'GC%', width: "10%" },
+                            { data: 'Release Date', width: "10%" },
+                        ]
+                    });
+                    // Show the table
+                    $('#myTable').show();
+                }
+            });
+        });        
+    </script>
 </body>
-
 </html>
