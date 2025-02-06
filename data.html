@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>phyca</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link href="./CSS/phylotree.css" rel="stylesheet" />
+  <!-- Latest compiled and minified CSS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootswatch/4.1.1/spacelab/bootstrap.min.css" />
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <script src="//d3js.org/d3.v6.js"></script>
+  <script src="./JS/phylotree.min.js?123"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #0048ff;">
+    <div class="container px-1">
+      <!-- Left side with logo -->
+      <a class="text-white h6" href="./index.html">
+        Universal Ortholog Based Phylogenomic Database and Toolset
+      </a>
+      <!-- Navbar toggle button for small screens -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Right side with links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="./index.html">Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./genomes.html">Genomes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./data.html">Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./software.html">Software</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="mainContainer">
+
+  <section>
+
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+
+    <h5 class=" text-center ">Data in highlighted phylogenies </h5>
+
+    &nbsp;
+
+    <div id="table_section">
+  <table class="table table-bordered table-hover table-condensed">
+    <thead><tr><th title="Field #1">Lineage</th>
+    <th title="Field #2">Level</th>
+    <th title="Field #3">Taxa</th>
+    <th title="Field #4">Root</th>
+    </tr></thead>
+    <tbody><tr>
+    <td>Viridiplantae</td>
+    <td>Species</td>
+    <td align="right">513</td>
+    <td><i>Klebsormidium nitens</i></td>
+    </tr>
+    <tr>
+    <td>Liliopsida</td>
+    <td>Genera</td>
+    <td align="right">182</td>
+    <td><i>Amborella trichopoda</i></td>
+    </tr>
+    <tr>
+    <td>Eudicots</td>
+    <td>Species</td>
+    <td align="right">817</td>
+    <td><i>Amborella trichopoda</i></td>
+    </tr>
+    <tr>
+    <td>Chlorophyta</td>
+    <td>Species</td>
+    <td align="right">83</td>
+    <td><i>Klebsormidium nitens</i></td>
+    </tr>
+    <tr>
+    <td>Fungi</td>
+    <td>Genera</td>
+    <td align="right">989</td>
+    <td><i>Polychytrium aggregatum</i></td>
+    </tr>
+    <tr>
+    <td>Ascomycota</td>
+    <td>Genera</td>
+    <td align="right">591</td>
+    <td><i>Saitoella complicata</i></td>
+    </tr>
+    <tr>
+    <td>Basidiomycota</td>
+    <td>Species</td>
+    <td align="right">782</td>
+    <td><i>Wallemia mellicola</i></td>
+    </tr>
+    <tr>
+    <td>Metazoa</td>
+    <td>Genera</td>
+    <td align="right">2405</td>
+    <td><i>Amphimedon queenslandica</i></td>
+    </tr>
+    <tr>
+    <td>Arthropoda</td>
+    <td>Genera</td>
+    <td align="right">993</td>
+    <td><i>Limulus polyphemus</i></td>
+    </tr>
+    <tr>
+    <td>Vertebrata</td>
+    <td>Genera</td>
+    <td align="right">1199</td>
+    <td><i>Collorhinchus milii</i></td>
+    </tr>
+    </tbody></table>
+
+    </div>
+
+  </section>
+
+
+  <section>
+    <div class="container">
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <h5 class=" text-left ">Bulk research data </h5>
+      &nbsp;
+      &nbsp;
+
+      <!-- <h2> Data files </h2> -->
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/web/Complete_genome_stats.tsv">Compiled genome statistics.</a>
+        <br>
+        Description: NCBI metadata, assembly quality statistics, BUSCO annotation statistics and taxonomic information for all genomes analyzed.
+      </p>
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/CUS.tsv">CUSCO genes.</a>
+        <br>
+        Description: Curated BUSCO gene set for 10 lineages that have upto 7% higher precision in annotations.
+      </p>
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/alignments/aln_stats.tsv">BUSCO gene length statistics.</a>
+        <br>
+        Description: Annotated gene length summary statistics for all BUSCO genes in 10 lineages across all taxa.  
+      </p>
+
+      <p style="font-size:16px" > Data file: Gene alignments.
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/vi1.tar">Viridiplantae</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/li1.tar">Liliopsida</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/eu1.tar">Eudicots</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/ch1.tar">Chlorophyta</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/fu1.tar">Fungi</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/as1.tar">Ascomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/ba1.tar">Basidiomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/me1.tar">Metazoa</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/ar1.tar">Arthropoda</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/ve1.tar">Vertebrata</a>
+        <br>
+        Description: Aligned fasta files of gene alignments done by Muscle v5. 
+      </p>
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/web/treesets.tar.gz">Treefiles</a>. 
+        <br>
+        Description: Accounts for 3,566 computed trees are provided in the research description. There are three sets of trees. 
+        1. One tree each per lineage computed with amino acid states ranging from 2-14 and alignment lengths ranging from 1,000-15,000. 
+        2. For five selected lineages (Eudictos, Ascomycota, Basidiomcyota, Arthropoda, Vertebrata), 10 trees each from 5 sets of sampled sites at 9 total conditions (3 rates x 3 alignment lengths). Rate profiles were of amino acid states 2, 8 and 14. Alignment lengths were 1,000, 5,000 and 10,000. 
+        3. Based on the results, sets of about 50-100 trees for all 10 lineages of the highest possible rate configurations. Amino acid states 8 and 14 were also included. 
+      </p>
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/web/familywise_monophyly.tsv">Treeset taxonomic congruity.</a>
+        <br>
+        Description: For sets of 50 trees created under 9 experimental conditions (3 rates x 3 alignment lengths) for the 5 tested lineages, the extent of taxonomic congruity is measured by the number of families resolved as monophyletic by the phylogenies.
+        There are a total of 543 families that were tested.
+      </p>
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/web/Conserved_gene_blocks.tsv">Conserved gene blocks.</a>
+        <br>
+        Description: For the 10 BUSCO lineages, colinear gene blocks with identified (true) and remnant (null) BUSCO genes that were found to be conserved across very long divergence times were extracted.
+        Search for gene blocks of up to about 8 genes were computationally feasible and the 10 gene blocks having the highest incidence have been cataloged.    
+      </p>
+
+      <p style="font-size:16px" > Data file: <a href="https://ava.genome.arizona.edu/UniPhy/web/oryzasyn.tar">Synteny plots of <i>Oryza</i> chromosomes.</a>
+        <br>
+        Description: The <i>Oryza</i> genus was presented as a case-study demonstrating the utility of BUSCO syntenic information in assembly evaluations because of the presence of highly contigous reference assemblies for several species within the genus.
+        The synteny plots are split by chromosome.
+      </p>
+
+      <p style="font-size:16px" > Data file: Compleasm annotations for all assemblies.
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/vi_an.tsv.gz">Viridiplantae</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/li_an.tsv.gz">Liliopsida</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/eu_an.tsv.gz">Eudicots</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ch_an.tsv.gz">Chlorophyta</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/fu_an.tsv.gz">Fungi</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/as_an.tsv.gz">Ascomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ba_an.tsv.gz">Basidiomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/me_an.tsv.gz">Metazoa</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ar_an.tsv.gz">Arthropoda</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ve_an.tsv.gz">Vertebrata</a>
+        <br>
+        Description: Compiled compleasm output for all assemblies. These have been referred to as true or identified genes.
+      </p>
+
+      <p style="font-size:16px" > Data file: Compleasm annotations for chromosome-level assemblies.
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/vi_ch.tsv.gz">Viridiplantae</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/li_ch.tsv.gz">Liliopsida</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/eu_ch.tsv.gz">Eudicots</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ch_ch.tsv.gz">Chlorophyta</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/fu_ch.tsv.gz">Fungi</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/as_ch.tsv.gz">Ascomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ba_ch.tsv.gz">Basidiomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/me_ch.tsv.gz">Metazoa</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ar_ch.tsv.gz">Arthropoda</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ve_ch.tsv.gz">Vertebrata</a>
+        <br>
+        Description: Compiled compleasm output for chromosome-level assemblies. These assemblies are used during phyca (collinearity) analysis.
+      </p>
+
+      <p style="font-size:16px" > Data file: Compleasm annotations for all BUSCO-depleted assemblies.
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/vi_null.tsv.gz">Viridiplantae</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/li_null.tsv.gz">Liliopsida</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/eu_null.tsv.gz">Eudicots</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ch_null.tsv.gz">Chlorophyta</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/fu_null.tsv.gz">Fungi</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/as_null.tsv.gz">Ascomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ba_null.tsv.gz">Basidiomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/me_null.tsv.gz">Metazoa</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ar_null.tsv.gz">Arthropoda</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/ve_null.tsv.gz">Vertebrata</a>
+        <br>
+        Description: Compiled Compleasm output for all assemblies after deleting all BUSCO genes from the assemblies. These have been referred to as null or remnant genes.
+      </p>
+
+      <!-- <p style="font-size:16px" > Data file: 
+        <br>
+        Description:
+      </p>
+
+      <p style="font-size:16px" > Data file: 
+        <br>
+        Description:
+      </p>
+
+      <p style="font-size:16px" > Data file: 
+        <br>
+        Description:
+      </p> -->
+
+    </div>
+    </div>
+  </section>
+  <section>
+</body>
+</html>

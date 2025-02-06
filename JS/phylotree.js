@@ -3024,7 +3024,7 @@
         "attribute-list": [],
         "max-radius": 768,
         "annular-limit": 0.38196601125010515,
-        compression: 0.05,
+        compression: 0.2,
         "align-tips": true,// by default it is left, for our requirements, we make it true
         "maximum-per-node-spacing": 100,
         "minimum-per-node-spacing": 2,

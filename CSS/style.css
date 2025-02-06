@@ -374,3 +374,8 @@
         font-size: 0.8rem !important;
     }
 }
+
+
+.justify-image{ text-align: justify;}
+.justify-image img{display:inline-block;}
+.justify-image:after{content:""; display: inline-block; width: 100%; height: 0;}
