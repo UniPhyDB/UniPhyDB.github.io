@@ -29,7 +29,7 @@
   <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: #0048ff;">
     <div class="container px-1">
       <!-- Left side with logo -->
-      <a class="text-white h6" href="./index.html">
+      <a class="text-white h7" style= "font-weight:bold" href="./index.html">
         Universal Ortholog Based Phylogenomic Database and Toolset
       </a>
       <!-- Navbar toggle button for small screens -->
@@ -174,7 +174,7 @@
         Description: Annotated gene length summary statistics for all BUSCO genes in 10 lineages across all taxa.  
       </p>
 
-      <p style="font-size:16px" > Data file: Gene alignments.
+      <p style="font-size:16px" > Data files: Gene alignments.
         <br>
         <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/alignments/vi1.tar">Viridiplantae</a>
         <br>
@@ -225,7 +225,7 @@
         The synteny plots are split by chromosome.
       </p>
 
-      <p style="font-size:16px" > Data file: Compleasm annotations for all assemblies.
+      <p style="font-size:16px" > Data files: Compleasm annotations for all assemblies.
         <br>
         <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/vi_an.tsv.gz">Viridiplantae</a>
         <br>
@@ -250,7 +250,7 @@
         Description: Compiled compleasm output for all assemblies. These have been referred to as true or identified genes.
       </p>
 
-      <p style="font-size:16px" > Data file: Compleasm annotations for chromosome-level assemblies.
+      <p style="font-size:16px" > Data files: Compleasm annotations for chromosome-level assemblies.
         <br>
         <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/vi_ch.tsv.gz">Viridiplantae</a>
         <br>
@@ -275,7 +275,7 @@
         Description: Compiled compleasm output for chromosome-level assemblies. These assemblies are used during phyca (collinearity) analysis.
       </p>
 
-      <p style="font-size:16px" > Data file: Compleasm annotations for all BUSCO-depleted assemblies.
+      <p style="font-size:16px" > Data files: Compleasm annotations for all BUSCO-depleted assemblies.
         <br>
         <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/annotations/vi_null.tsv.gz">Viridiplantae</a>
         <br>
@@ -299,6 +299,52 @@
         <br>
         Description: Compiled Compleasm output for all assemblies after deleting all BUSCO genes from the assemblies. These have been referred to as null or remnant genes.
       </p>
+
+      <p style="font-size:16px" > Data files: Gene trees for comparisons to coalescent methods.
+        <br>
+        <a style="margin-left: 70px;" href="http://ava.genome.arizona.edu/UniPhy/trees/eu199.clst">Eudicots</a>
+        <br>
+        <a style="margin-left: 70px;" href="http://ava.genome.arizona.edu/UniPhy/trees/as111.clst">Ascomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="http://ava.genome.arizona.edu/UniPhy/trees/ba121.clst">Basidiomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="http://ava.genome.arizona.edu/UniPhy/trees/ar197.clst">Arthropoda</a>
+        <br>
+        <a style="margin-left: 70px;" href="http://ava.genome.arizona.edu/UniPhy/trees/ve135.clst">Vertebrata</a>
+        <br>
+        Description: Gene trees were created for 5 lineages for comparing the BUSCO-concatenation method to multi-species coalescent methods, and for computing gene concordance factors. 
+
+      </p>
+
+
+      <p style="font-size:16px" > Data files: BUSCO gene loss data.
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GeneLoss.xlsx">Full table formatted in Excel.</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLViridiplantae.pdf">Viridiplantae</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLLiliopsida.pdf">Liliopsida</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLEudicots.pdf">Eudicots</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLChlorophyta.pdf">Chlorophyta</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLFungi.pdf">Fungi</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLAscomycota.pdf">Ascomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLBasidiomycota.pdf">Basidiomycota</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLMetazoa.pdf">Metazoa</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLArthropoda.pdf">Arthropoda</a>
+        <br>
+        <a style="margin-left: 70px;" href="https://ava.genome.arizona.edu/UniPhy/web/GLVertebrata.pdf">Vertebrata</a>
+        <br>
+        Description: BUSCO gene loss events along the phylogenies. In the Excel file, each sheet represents a BUSCO lineage with genes in the horizontal axis and ordered leaves of the inferred phylogeny on the vertical axis. The cells contain sequence similarity to the ODB_v10 database query genes. The top 100 genes (57 for viridiplantae) with most frequently detected loss events are also visualized in pdf files for each lineage.
+      </p>
+
+
 
       <!-- <p style="font-size:16px" > Data file: 
         <br>
